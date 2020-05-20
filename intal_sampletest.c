@@ -160,7 +160,7 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
-	result1 = intal_fibonacci(1000);
+	result1 = intal_fibonacci(100);
 	if(!result1) {
 		printf("Test intal_fibonacci FAILED.\n");
 	} else {
@@ -206,7 +206,7 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
-	result1 = intal_bincoeff(1000, 900);
+	result1 = intal_bincoeff(1000, 500);
 	if(!result1) {
 		printf("Test intal_bincoeff FAILED.\n");
 	} else {

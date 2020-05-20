@@ -138,7 +138,6 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
-	printf("GCD\n");
 	result1 = intal_gcd(a[0], a[5]);
 	if(!result1) {
 		printf("Test intal_gcd FAILED.\n");
@@ -207,9 +206,7 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
-	printf("SEG problem\n");
-	result1 = intal_bincoeff(1000, 174);
-	printf("%s\n",result1);
+	result1 = intal_bincoeff(1000, 900);
 	if(!result1) {
 		printf("Test intal_bincoeff FAILED.\n");
 	} else {

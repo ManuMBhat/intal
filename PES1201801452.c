@@ -297,16 +297,13 @@ char* intal_fibonacci(unsigned int n){
     unsigned int i;
     for(i = 2; i<= n; i++){
         fibonacci3 = intal_add(fibonacci1, fibonacci2);
-        char* temp = fibonacci1;
-        fibonacci1 = fibonacci2;
-        fibonacci2 = fibonacci3;
-        free(temp);
-    }
-    char* final_result = lstrip0(fibonacci3);
-    if(i > 4){
-        free(fibonacci2);
+        strcpy(fibonacci1,fibonacci2);
+        strcpy(fibonacci2,fibonacci3);
         free(fibonacci3);
     }
+    char* final_result = lstrip0(fibonacci2);
+    free(fibonacci1);
+    free(fibonacci2);
     return final_result;
     
 }
@@ -351,30 +348,7 @@ int intal_search(char **arr, int n,const char* key){
     }
     return -1;
 }
-//char** bincoeff = (char**)malloc(sizeof(char*)*(n + 1)*(k + 1));
-    // unsigned int  i = 0;
-    // if(k > n -k){
-    //     k = n - k;
-    // }
-    // while(i <= n){
-    //     unsigned int j = 0;
-    //     while(j <= i && j<= k){
-    //         if(j == 0 || j == i){
-    //             bincoeff[i*(k + 1) + j] = "1";
-    //         }
-    //         else{
-    //             bincoeff[i*(k + 1) + j] = intal_add(bincoeff[(i - 1)*(k + 1) + j],bincoeff[(i - 1)*(k + 1) + j - 1]);
-    //         }
-    //         j++;
-    //     }
-    //     i++;
-    // }
-    // char* res = init_intal(strlen(bincoeff[n * (k + 1) + k]));
-    // strcpy(res,bincoeff[n * (k + 1) + k]);
-    // free(bincoeff);
-    // char* final_result = lstrip0(res);
-    // free(res);
-    // return final_result;
+
 char* intal_bincoeff(unsigned int n, unsigned int k){
     char** bincoeff =  (char**)malloc(sizeof(char*)*(k + 1));
     bincoeff[0] = init_intal(1);

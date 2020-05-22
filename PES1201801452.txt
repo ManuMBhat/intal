@@ -1,0 +1,29 @@
+Introduction:
+Intal is a c library for arithmetic operations of unsigned integers of 1000 digits, where the numbers are represented in decimal system. It can perform some of the basic operations neccessary like addition, difference, multiplication etc. These operations allow the user to not be limited by the limit of integer size of the compiler(which depends on system word size). 
+Intal can have various useful applications in many fields, especially where large computations are necessary. For example, in the field of cryptography, where the large integer sizes are necessary to ensure security, while the efficient algorithms are useful in reducing any latency that could potential cause security concerns.
+
+Approach:
+intal_compare : Parameters : const char*, const char*
+return type : int 
+Description :
+By left striping the zeros inthe arguements we remove any issues that can arise due to 0's(a potential bug). Next, comparing the lengths of the lstriped arguements, we can immediately see the comparison between the inputs. If the length are equal, then start comapring from the most significant digit to the least. If there are any digits that are unequal, then we return the corresponding valuue (-1 or 1,as suitable).If all digits are equal then we can declare the inputs to be equal and hence return 0.
+
+intal_add : Parameters : const char*, const char*
+return type : char*
+Description :
+While adding we move from the least significant digit to the most significant digit of the both the inputs. Carry is set to 0 initially. We add the digits of the inputs iteratively as well as adding carry, if the sum of the digits are greater than 10, then we subtract 10 from the sum and make carry 1, else carry is set to 0. Set the respective position of the result to the sum value. If one of the inputs is exhausted, then we add the other input digit wise with the carry and store it to the result, while continuing to keep a carry. Left strip and return the result.
+
+intal_diff : Parameters : const char*, const char*
+return type : char*
+Description :
+The operations done are similar to intal_add, except instead of adding, we subtract the digits and the carry. If the difference is less than 0, then add 10 and set carry to 1, else set carry 0.The resukt is stored into result in the respective index.The result is returned.
+
+intal_multiply : Parameters : const char*, const char*
+return type : char*
+Description : 
+The implementation follows Karatsuba Algorithm. Let the inputs be A and B, each of n digits(if they are of unequal digits,then pad with 0's to the left). Divide each number into two parts of n/2 digits. A = A1.A2, B = B1.B2. Then A*B = A1*B1*10^n + ((A1 + A2)(B1 + B2) - A1*B1 - A2*B2)*10^n/2 + A2*B2. This way we do only three multiplications, rather than doing 4,as in other divide and conquer methods. While the overhead of Karatsuba is large, it is much better suited for large integers(more than 20 digits), which is the primary goal of this library.
+
+intal_mod : Parameters : const char*, const char*
+return type : char*
+Description :
+

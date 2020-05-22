@@ -540,7 +540,6 @@ char* coin_row_problem(char **arr, int n){
     return curr;
 }
 
-
 char* intal_mod(const char* intal1, const char* intal2)
 {
     int res = intal_compare(intal1,intal2);
@@ -549,10 +548,10 @@ char* intal_mod(const char* intal1, const char* intal2)
 		strcpy(result,intal1);
 		return result;
 	}
-	int diff = strlen(intal1) - strlen(intal2) - 1;
-	if(diff > 0)
+	int length_difference = strlen(intal1) - strlen(intal2) - 1;
+	if(length_difference > 0)
 	{
-        char* r1 = power_10(intal2,diff);
+        char* r1 = power_10(intal2,length_difference);
         char* temp = r1;
 		r1 = intal_diff(intal1,temp);
         free(temp);

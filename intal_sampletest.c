@@ -160,7 +160,7 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
-	result1 = intal_fibonacci(1000);
+	result1 = intal_fibonacci(100);
 	if(!result1) {
 		printf("Test intal_fibonacci FAILED.\n");
 	} else {

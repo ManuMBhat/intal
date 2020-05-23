@@ -82,3 +82,10 @@ coin_row_problem : Parameters : char**,int
 return type : char*
 Description :
 The problem is solved using dynamic programming.Two variables are used for memoization, prev initially holds 0 and curr holds the first element. By iterating through te array of coins, add prev with the current element in the array. Check which among the sum and curr is max, set curr to that value, while making prev the current curr value. When the traversal of the array is done, whatever the value of curr is will be the solution to the coin row prolem for the given coins.
+
+Future Work :
+Functionalities that can be added : 1.Negative numbers as well. This could help extend the domain of calculations making the library even more useful.
+2.Floating point numbers with high degree of precision. While this would require considerable changes to the working of the library, this would allow for useful applications in many different fields where precision more than that is available by default in the language is neccessary.
+3. If Flaoting point numbers can be added then we can as well try and extend to imaginary numbers. However this seems to be have a niche application.
+
+If there were no restricitions, then to build a library of arbitrary length integers I would try and implement similar functionalities, but one drawback/limitaation would be the possibility of overflowing the memory limit while doing these calculations as arbitrary length integers would be, as suggested, arbitrary length. So the functions and the lirary will be limited by the system capacity as to what arbitrary would really mean. That said, given complete freedom to develop, I would try and develop an array of functions other than just the basic arithmetic function, ex : prime factorisation, large prime generator etc. Another interesting possibility is to try and implement the divide and conquer strategy function using parallel computations, as most systems today are multicore, this would drastically reduce the time taken by the functions and hence make the library more feasible for large operations.

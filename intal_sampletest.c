@@ -56,11 +56,11 @@ int main(int argc, char const *argv[]) {
 		free(result1);
 	}
 
-	result1 = intal_multiply("1234567899876556478398475739", "987654323456789987653678847293487389");
+	result1 = intal_multiply(a[8], a[5]);
 	if(!result1) {
 		printf("Test intal_multiply FAILED.\n");
 	} else {
-		if(0 == strcmp(result1, "1219326323914050427986151137303224201245505403783196479218955471")) {
+		if(0 == strcmp(result1, "65185851858518585185851852")) {
 			printf("Test intal_multiply PASSED\n");
 		} else {
 			printf("Test intal_multiply FAILED.\n.Your answer: %s\nExpected answer: %s\n", result1, "65185851858518585185851852");
@@ -68,7 +68,7 @@ int main(int argc, char const *argv[]) {
 		free(result1);
 	}
 
-	result1 = intal_mod("29", "7");
+	result1 = intal_mod(a[3], a[4]);
 	if(!result1) {
 		printf("Test intal_mod FAILED.\n");
 	} else {
@@ -79,7 +79,8 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
-	result1 = intal_mod("951", "12");
+
+	result1 = intal_mod("978", "5");
 	if(!result1) {
 		printf("Test intal_mod FAILED.\n");
 	} else {
@@ -138,6 +139,7 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
+
 	result1 = intal_gcd(a[0], a[5]);
 	if(!result1) {
 		printf("Test intal_gcd FAILED.\n");
@@ -149,6 +151,7 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
+
 	result1 = intal_fibonacci(3);
 	if(!result1) {
 		printf("Test intal_fibonacci FAILED.\n");
@@ -160,7 +163,8 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
-	result1 = intal_fibonacci(100);
+
+	result1 = intal_fibonacci(1000);
 	if(!result1) {
 		printf("Test intal_fibonacci FAILED.\n");
 	} else {
@@ -171,6 +175,7 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
+
 	result1 = intal_factorial(30);
 	if(!result1) {
 		printf("Test intal_factorial FAILED.\n");
@@ -206,7 +211,8 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
-	result1 = intal_bincoeff(1000, 500);
+
+	result1 = intal_bincoeff(1000, 900);
 	if(!result1) {
 		printf("Test intal_bincoeff FAILED.\n");
 	} else {
@@ -217,41 +223,58 @@ int main(int argc, char const *argv[]) {
 		}
 		free(result1);
 	}
-	index1 = intal_max(a, 10);
-	if(6 == index1) {
+
+	index1 = intal_max(a, n);
+	if(10 == index1) {
 		printf("Test intal_max PASSED\n");
 	} else {
 		printf("Test intal_max FAILED.\nYour answer: %d\nExpected answer: %d\n", index1, 6);
 	}
 
-	index1 = intal_min(a, 10);
+	index1 = intal_min(a, n);
 	if(2 == index1) {
 		printf("Test intal_min PASSED\n");
 	} else {
 		printf("Test intal_min FAILED.\nYour answer: %d\nExpected answer: %d\n", index1, 2);
 	}
 
-	index1 = intal_search(a, 10, a[7]);
+	index1 = intal_search(a, n, a[7]);
 	if(6 == index1) {
 		printf("Test intal_search PASSED\n");
 	} else {
 		printf("Test intal_search FAILED.\nYour answer: %d\nExpected answer: %d\n", index1, 6);
 	}
 
-	intal_sort(a, 10);
-	index1 = intal_binsearch(a, 10, "3");
+	result1 = coin_row_problem(a, n);
+	if(!result1) {
+		printf("Test coin_row_problem FAILED.\n");
+	} else {
+		if(0 == strcmp("1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000265796081911012046846190578820987", result1)) {
+			printf("Test coin_row_problem PASSED\n");
+		} else {
+			printf("Test coin_row_problem FAILED.\nYour answer: %s\nExpected answer: %s\n", result1, "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000265796081911012046846190578820987");
+		}
+		free(result1);
+	}
+	
+	intal_sort(a, n);
+	printf("\nTest intal_sort PASSED only if the following sequence of %d intals are sorted in nondecreasing order.\n", n);
+	for (int i = 0; i < n; i++) {
+		printf("%s\n", a[i]);
+	}
+	printf("\n");
+
+	index1 = intal_binsearch(a, n, "3");
 	if(1 == index1) {
 		printf("Test intal_binsearch and probably intal_sort PASSED\n");
 	} else {
 		printf("Test intal_binsearch and probably intal_sort FAILED.\nYour answer: %d\nExpected answer: %d\n", index1, 1);
 	}
 
-	result1 = coin_row_problem(a+1, 2);
-	if(0 == strcmp("12", result1)) {
-		printf("Test coin_row_problem PASSED\n");
-	} else {
-		printf("Test coin_row_problem FAILED.\nYour answer: %s\nExpected answer: %s\n", result1, "12");
+	// Don't forget to free all the memory that is dynamically allocated.
+	for(int i = 0; i < n; i++) {
+		free(a[i]);
 	}
-
+	free(a);
 	return 0;
 }

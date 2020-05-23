@@ -6,7 +6,7 @@
 #define DOUBLE_ZERO 96
 #define MAX_SIZE    1000
 
-//mod gcd
+
 
 static char* init_intal(int n){
     char* result = (char*)malloc(sizeof(char)*(n+1));
@@ -358,15 +358,18 @@ char* intal_bincoeff(unsigned int n, unsigned int k){
     }
     unsigned int i = 1;
     while(i <= k){
-        bincoeff[i] = "0";
+        bincoeff[i] = init_intal(MAX_SIZE);
+        strcpy(bincoeff[i],"0");
         i++;
     }
     i = 1;
     while(i <= n){
         unsigned int j = (i >= k)? k: i;
         while(j > 0){
+            char* temp = bincoeff[j];
             bincoeff[j] = intal_add(bincoeff[j],bincoeff[j - 1]);
             j--;
+            free(temp);
         }
         i++;
     }
@@ -427,6 +430,9 @@ int intal_binsearch(char **arr, int n, const char* key){
         mid = (beg + end)/2;
         int res = intal_compare(arr[mid],key);
         if(res == 0){
+            while(mid > 0 && intal_compare(arr[mid],arr[mid - 1]) == 0){
+                mid = mid - 1;
+            }
             return mid;
         }
         else if(res == -1){

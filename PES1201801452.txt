@@ -26,4 +26,59 @@ The implementation follows Karatsuba Algorithm. Let the inputs be A and B, each 
 intal_mod : Parameters : const char*, const char*
 return type : char*
 Description :
+To find the mod of A%B, we first check if A < B. If it is less than, then we simply return A. When less than, we will multiply B with 10 until they both have equal number of digits. Once they have equal number of digits, subtract B from A. We continue doing this until they are of equal lengths. Once they are of equal lengths, we will continually subtract B from the leftover number until the difference is less than B. We then retrurn the remianing value.
 
+intal_gcd : Parameters : const char*, const char*
+return type : char*
+Description :
+Euclid's algorithm is used here. Until the second parameters is zero we recursively call the intal_gcd function but with parameters being second parameter as first and first input mod second input. 
+
+intal_pow : Parameters : const char*, unsigned int n
+return type : char*
+Description :
+The implementation follows divide and conquer strategy. We recursively call intal_pow with second parameter being halved as to the parent call. Then check if the second parameter is odd or even, accordingly we either multiply the result of the recursion with itself, and multiply even with the input as well.
+
+intal_fibonacci : Parameters : unsigned int
+return type : char*
+Description : 
+The function iteratively calcuates fibonacci numbers and stores them. As only the last two computed fibonacci numbers are stored, hence reducing the space needed.
+
+intal_factorial : Parameters : unsigned int
+return type : char*
+Description :
+The function iteratively multiplies from 1 to the input and stores it in the result. The multiplication is done using intal_multiply.
+
+intal_bincoeff : Parameters : unsigned int, unsigned int
+return type : char*
+Description : 
+We know that nC0 and nCn is 1. The rest of the binomial coefficients can be calculated by the use of Pascal's identity.In the function, using Pascal's identity, it iteratively computes the binomail coefficients until we obtain the value we need. A subtle fact is that we dont need to store all the coefficients in memory for using Pascal's identity, rather only about as many values as the second parameter. This drastically reduces the memory requirements of the function.
+
+intal_max : Parameters : char**, int
+return type : int
+Description : 
+Iteratively traverse the array, comparing every element with the max found so far, if current element greater, make that the new max. Once the traversal is done return the position of max.
+
+intal_min : Parameters : char**, int
+return type : int
+Description : 
+Iteratively traverse the array, comparing every element with the min found so far, if current element greater, make that the new min. Once the traversal is done return the position of min.
+
+intal_search : Parameters : char**, int, char*
+return type : int
+Description : 
+Iteratively traverse the array, comparing every element with the key, if equla return the current position, else continue. If at end of traversal, key not found, return -1.
+
+intal_binsearch : Parameters : char**, int, char*
+return type : int
+Description : 
+The function follows the principle of divide and conquer strategy. Iteratively the array is divided into two halves, and depending on how the middle element compares with the key, the function chooses which part of the array to consider. If the key is greater than the middle element, then we consider the array from beginning to mid, else we choose the array from mid to end.
+
+intal_sort : Parameters : char**, int
+return type : void
+Description : 
+Sorting is done vased on mergesort principle. The input array is divided into 2 arrays, each passed recursively to mergesort. Then we merge the two partially sorted arrays. By doing this recursively the arrays are sorted. The merge function works by iteratively checking the two arrays passed to it element wise. Whichever element is smaller is put into the result array, in the current index. Update the inde by incrementing by 1.
+
+coin_row_problem : Parameters : char**,int
+return type : char*
+Description :
+The problem is solved using dynamic programming.Two variables are used for memoization, prev initially holds 0 and curr holds the first element. By iterating through te array of coins, add prev with the current element in the array. Check which among the sum and curr is max, set curr to that value, while making prev the current curr value. When the traversal of the array is done, whatever the value of curr is will be the solution to the coin row prolem for the given coins.
